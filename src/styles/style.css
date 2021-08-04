@@ -1,0 +1,69 @@
+:root {
+  --black: vsl(0, 50%, 50%);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box !important;
+  font-family: Poppins;
+  transition: ease all 1s;
+  color: #000;
+}
+
+.black-layer {
+  position: relative;
+  background: #000;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--black) !important;
+}
+
+/* global styles */
+
+.container {
+  width: 80% !important;
+  margin: auto !important;
+}
+
+.flex {
+  display: flex;
+}
+
+.box-1,
+.box-2 {
+  width: 50%;
+}
+
+.space-b {
+  justify-content: space-between !important;
+}
+.space-a {
+  justify-content: space-around !important;
+}
+
+.f-right {
+  text-align: center;
+}
+
+.links-top {
+  margin: 0.7rem;
+  font-size: 0.73rem;
+}
+
+/* global styles end */
+
+    
+
+/* -----cards start------  */
+
+/* -----cards end------ */
