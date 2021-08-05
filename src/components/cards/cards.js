@@ -14,7 +14,7 @@ export default function Cards() {
       .catch((error) => {
         console.log(error);
       });
-
+      
     dispatch(setProducts(response.data));
   };
 

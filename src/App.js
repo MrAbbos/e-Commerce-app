@@ -3,6 +3,7 @@ import "./styles/responsive.css";
 import Cards from "./components/cards/cards";
 import Carousel from "./components/my-carousel/carousel";
 import Header from "./components/header/Header";
+import ProductDetailed from "./components/productDetail";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 export default function App() {
@@ -11,9 +12,9 @@ export default function App() {
       <Router>
         <Header />
         <Carousel />
-        <Cards />
         <Switch>
-          <Route path="/products" exact component={Cards} />
+          <Route path="/" exact component={Cards} />
+          <Route path="/product/:productid" exact component={ProductDetailed} />
         </Switch>
       </Router>
     </div>
