@@ -42,7 +42,12 @@
 .content-card {
   padding: 0.3rem;
 }
-
+.card-box-left {
+  flex: 2;
+}
+.card-box-right {
+  flex: 1;
+}
 .card-box-right i {
   float: right;
 }
