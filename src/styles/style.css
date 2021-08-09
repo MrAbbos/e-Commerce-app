@@ -8,7 +8,7 @@
   margin: 0;
   box-sizing: border-box !important;
   font-family: Poppins;
-  transition: ease all 1s;
+  transition: ease all 0.1s;
 }
 
 .black-layer {
@@ -28,8 +28,13 @@ a {
   color: var(--black) !important;
 }
 button {
-  border: none !important;
+  border: 1px solid black;
+  border-radius: 5px !important;
   background: none;
+  padding: 0.2rem;
+}
+button:active {
+  transform: scale(1.2);
 }
 
 /* global styles */

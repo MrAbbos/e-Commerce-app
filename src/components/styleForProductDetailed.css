@@ -16,6 +16,16 @@
 #choosing {
   margin: 1rem;
 }
+.choosingSize,
+.numberOfGoods {
+  flex: 2 !important;
+}
+.a {
+  flex: 1;
+}
+.numberOfGoods {
+  align-items: center;
+}
 
 #choosing .counter {
   width: 100px !important;

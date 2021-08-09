@@ -100,13 +100,13 @@ export default function ProductDetailed() {
                 <div className="numberOfGoods flex">
                   <div className="counter flex space-b">
                     <button onClick={takeOne}>- </button>
-                    <input value={subTotal} type="number" />
+                    {subTotal}
                     <button onClick={addOne}>+ </button>
                   </div>
                 </div>
-                <div>
+                <div className="a">
                   <span> Price is: {price * subTotal} $ </span>
-                  <button> Add to cart</button>
+                  <button className="btn"> Add to cart</button>
                 </div>
               </div>
             </div>

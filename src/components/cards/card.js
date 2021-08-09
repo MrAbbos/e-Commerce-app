@@ -17,34 +17,34 @@ export default function Card() {
         <div className="img-card flex">
           <img width="100%" src={image} alt={title} />
         </div>
-        <div className="flex content-card space-b">
-          <div className="card-box-left">
-            {title}
-            <br />
-            {category}
-            <br />
-            {price}
-          </div>
-          <div className="card-box-right">
-            <div className="icon">
-              <FontAwesomeIcon
-                //onClick={setAppr(false)}
-                icon={farHeart}
-                //style={{ display: appeareance ? "block" : "none" }}
-              />
-              <FontAwesomeIcon
-                icon={faHeart}
-                //onClick={setAppr(true)}
-                //style={{ display: appeareance ? "none" : "block" }}
-              />
+        <Link to={`/product/${id}`}>
+          <div className="flex content-card space-b">
+            <div className="card-box-left">
+              {title}
+              <br />
+              {category}
+              <br />
+              {price}
             </div>
-            <div className="add-btn">
-              <Link to={`/product/${id}`}>
+            <div className="card-box-right">
+              <div className="icon">
+                <FontAwesomeIcon
+                  //onClick={setAppr(false)}
+                  icon={farHeart}
+                  //style={{ display: appeareance ? "block" : "none" }}
+                />
+                <FontAwesomeIcon
+                  icon={faHeart}
+                  //onClick={setAppr(true)}
+                  //style={{ display: appeareance ? "none" : "block" }}
+                />
+              </div>
+              <div className="add-btn">
                 <button>Add to cart</button>
-              </Link>
+              </div>
             </div>
           </div>
-        </div>
+        </Link>
       </div>
     );
   });
