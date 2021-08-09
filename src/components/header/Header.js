@@ -18,8 +18,9 @@ export default function Header() {
             </div>
             <div className="box-2 flex space-a">
               <div className="login-bucket">
-                <button>LogIn</button>/
+                <button>LogIn </button>/
                 <button>
+                  
                   <FontAwesomeIcon icon={faShoppingCart} />
                 </button>
               </div>

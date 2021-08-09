@@ -36,6 +36,9 @@ button {
 button:active {
   transform: scale(1.2);
 }
+.btnAddCart {
+  float: right !important;
+}
 
 /* global styles */
 

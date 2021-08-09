@@ -4,6 +4,9 @@
 .detailed_card {
   justify-content: center;
 }
+.detailed_card .box-2 {
+  margin: 0.5rem;
+}
 
 .cost {
   background: red;
@@ -17,13 +20,12 @@
   margin: 1rem;
 }
 .choosingSize,
-.numberOfGoods {
-  flex: 2 !important;
-}
+.numberOfGoods,
 .a {
   flex: 1;
 }
 .numberOfGoods {
+  justify-content: center;
   align-items: center;
 }
 

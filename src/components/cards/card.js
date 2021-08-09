@@ -26,7 +26,7 @@ export default function Card() {
               <br />
               {price}
             </div>
-            <div className="card-box-right">
+            <div className="flex space-b card-box-right">
               <div className="icon">
                 <FontAwesomeIcon
                   //onClick={setAppr(false)}
@@ -40,7 +40,7 @@ export default function Card() {
                 />
               </div>
               <div className="add-btn">
-                <button>Add to cart</button>
+                <button className="btn btnAddCart">Add to cart</button>
               </div>
             </div>
           </div>

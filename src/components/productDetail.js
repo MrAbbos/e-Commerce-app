@@ -87,7 +87,7 @@ export default function ProductDetailed() {
               <span>{description}</span>
               <div id="choosing" className="flex space-b">
                 <div className="choosingSize">
-                  <span>Choose the size </span>
+                  <span>Choose size </span>
                   <select>
                     <option>small</option>
                     <option>medium</option>
@@ -97,18 +97,20 @@ export default function ProductDetailed() {
                     <option>3xLarge</option>
                   </select>
                 </div>
-                <div className="numberOfGoods flex">
-                  <div className="counter flex space-b">
-                    <button onClick={takeOne}>- </button>
-                    {subTotal}
-                    <button onClick={addOne}>+ </button>
-                  </div>
+                <div className="numberOfGoods space-a flex">
+                  <button onClick={takeOne}>- </button>
+                  {subTotal}
+                  <button onClick={addOne}>+ </button>
                 </div>
                 <div className="a">
-                  <span> Price is: {price * subTotal} $ </span>
-                  <button className="btn"> Add to cart</button>
+                  <span>
+                    {" "}
+                    Subtotal price is:{" "}
+                    {Math.round(price * subTotal * 1000) / 1000}${" "}
+                  </span>
                 </div>
               </div>
+              <button className="btn btnAddCart">Add to cart</button>
             </div>
           </div>
         )}
