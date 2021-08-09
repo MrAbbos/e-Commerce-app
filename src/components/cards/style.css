@@ -4,10 +4,6 @@
   box-sizing: border-box;
 }
 
-.flex {
-  display: flex;
-}
-
 .space-b {
   justify-content: space-between;
 }
@@ -19,7 +15,7 @@
 .card {
   min-height: 22vh;
   flex: 1;
-  min-width: 255px;
+  min-width: 355px;
   margin: 0.3rem;
   border: 0.15rem solid inherit;
   border-radius: 1rem;
@@ -48,8 +44,8 @@
 .card-box-right {
   flex: 1;
 }
-.card-box-right i {
-  float: right;
+.icon {
+  text-align: right;
 }
 
 .card-box-right i:active {

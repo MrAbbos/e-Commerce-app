@@ -1,9 +1,5 @@
 import "./style.css";
 //import imagesfolder from "./images/";
-import img1 from "./images/img1.jpg";
-import img2 from "./images/img2.jpg";
-import img3 from "./images/img3.jpg";
-import img4 from "./images/img4.jpg";
 
 const images = [
   { display: "", slideNum: "slide1", img: "img1" },
@@ -68,9 +64,6 @@ export default function Carousel() {
 
   startSlide();
   images.forEach((e) => {
-    console.log(e.slideNum + " slide " + e.display + " " + e.img);
-    console.log(typeof e.img);
-    console.log(img1);
     //    console.log(imagesfolder + encodeURIComponent(url("e.img")));
   });
   return (
@@ -78,10 +71,8 @@ export default function Carousel() {
       <div id="arrow-left" onClick={arr} className="arrow"></div>
       <div id="slider">
         {images.forEach((e) => {
-          <div
-            className={e.slideNum + " slide " + e.display}
-            style={{ backgroundImage: `url("./images/img1.jpg")` }} //or useimagesfoleder+encodeURIComponent(url("e.img"))
-          >
+          <div>
+            <img className={e.slideNum + " slide " + e.display} src="" />
             <div className="slide-content">
               <span>Image One</span>
             </div>

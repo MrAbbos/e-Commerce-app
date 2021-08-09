@@ -1,5 +1,6 @@
 import "./styles/style.css";
 import "./styles/responsive.css";
+
 import Cards from "./components/cards/cards";
 import Carousel from "./components/my-carousel/carousel";
 import Header from "./components/header/Header";
@@ -11,10 +12,19 @@ export default function App() {
     <div className="App">
       <Router>
         <Header />
-        <Carousel />
+
         <Switch>
-          <Route path="/" exact component={Cards} />
-          <Route path="/product/:productid" exact component={ProductDetailed} />
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <>
+                <Carousel />
+                <Cards />
+              </>
+            )}
+          />
+          <Route exact path="/product/:productId" component={ProductDetailed} />
         </Switch>
       </Router>
     </div>

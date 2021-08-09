@@ -8,24 +8,25 @@ import { Link } from "react-router-dom";
 export default function Card() {
   //const [appeareance, setAppr] = useState(true);
   const products = useSelector((state) => state.allProducts.products);
+  console.log(products);
   let everyProduct = products.map((product) => {
     const { id, title, image, price, category } = product;
 
     return (
       <div className="card" key={id}>
-        <Link to={`/product/${id}`}>
-          <div className="img-card">
-            <img width="100%" src={image} alt={title} />
+        <div className="img-card flex">
+          <img width="100%" src={image} alt={title} />
+        </div>
+        <div className="flex content-card space-b">
+          <div className="card-box-left">
+            {title}
+            <br />
+            {category}
+            <br />
+            {price}
           </div>
-          <div className="flex content-card space-b">
-            <div className="card-box-left">
-              {title}
-              <br />
-              Size: 41
-              <br />
-              {category}
-            </div>
-            <div className="card-box-right">
+          <div className="card-box-right">
+            <div className="icon">
               <FontAwesomeIcon
                 //onClick={setAppr(false)}
                 icon={farHeart}
@@ -36,12 +37,14 @@ export default function Card() {
                 //onClick={setAppr(true)}
                 //style={{ display: appeareance ? "none" : "block" }}
               />
-              <br />
-              <br />
-              Cost: {price}
+            </div>
+            <div className="add-btn">
+              <Link to={`/product/${id}`}>
+                <button>Add to cart</button>
+              </Link>
             </div>
           </div>
-        </Link>
+        </div>
       </div>
     );
   });

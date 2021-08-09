@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import "./style.css";
 
 export default function Header() {
@@ -9,7 +11,6 @@ export default function Header() {
             <div className="box-1">
               <div className="social-media-links flex space-a">
                 <button>Facebook</button>
-                <button>Twitter</button>
                 <button>Telegram</button>
                 <button>Blog</button>
                 <button>Youtube</button>
@@ -17,14 +18,17 @@ export default function Header() {
             </div>
             <div className="box-2 flex space-a">
               <div className="login-bucket">
-                <button>LogIn</button>/<button>B</button>
+                <button>LogIn</button>/
+                <button>
+                  <FontAwesomeIcon icon={faShoppingCart} />
+                </button>
               </div>
             </div>
           </div>
           <div className="navbar">
             <div className="flex space-b">
               <div className="box-1">Logo</div>
-              <div className="box-2 f-right">
+              <div className="box-2 text-center">
                 <ul className="flex space-a">
                   <li>
                     <button>Home</button>
