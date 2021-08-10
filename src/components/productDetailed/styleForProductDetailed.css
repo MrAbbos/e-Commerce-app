@@ -3,6 +3,7 @@
 }
 .detailed_card {
   justify-content: center;
+  align-items: center;
 }
 .detailed_card .box-2 {
   margin: 0.5rem;

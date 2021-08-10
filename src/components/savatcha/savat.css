@@ -1,0 +1,9 @@
+.savat .savatImg {
+  flex: 1;
+}
+.savat .name {
+  flex: 2;
+}
+.savat .choosing {
+  flex: 4;
+}

@@ -2,11 +2,10 @@ import axios from "axios";
 import "./styleForProductDetailed.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { selectedProduct } from "../redux/actions/actions";
+import { selectedProduct, addToCart } from "../../redux/actions/actions";
 
 export default function ProductDetailed() {
   const dispatch = useDispatch();
@@ -32,18 +31,57 @@ export default function ProductDetailed() {
     (state) => state.product.products
     //(state) => state.allProducts.products[--productId]
   );
-  console.log(product);
+  const cart = useSelector((state) => state.cart.cart);
 
-  // for add to cart
+  //          <<<<<------------------------>>>>>>>>>
+  //           ---   counter for subtotal ----
   const [subTotal, setSubTotal] = useState(0);
+
   function addOne() {
     setSubTotal(subTotal + 1);
   }
+
   function takeOne() {
     subTotal - 1 > 0
       ? setSubTotal(subTotal - 1)
       : alert("Please choose at least one product");
   }
+
+  //                    ---   counter for subtotal end  ----
+  //                   <<<----------------------------------->>>>>
+  //                       ---  btn for add to cart  ----
+
+  const [selectedOption, setSelectedOption] = useState("");
+
+  function setType(e) {
+    setSelectedOption(e.target.value);
+  }
+  console.log(selectedOption);
+  function addToCartf() {
+    let isAlreadyInCart = false;
+    cart.forEach((e) => {
+      if (e.id === productId && e.type === selectedOption) {
+        isAlreadyInCart = true;
+      }
+    });
+    if (isAlreadyInCart) {
+      alert(`Bug needed to be fixed
+      description: when user wants to buy the same thing more than a one time programm should update the quantity of that product.
+      `);
+    } else if (
+      subTotal > 0 &&
+      selectedOption !== "" &&
+      selectedOption !== "--select-"
+    ) {
+      dispatch(addToCart(productId, selectedOption, subTotal));
+      console.log(selectedOption);
+    } else {
+      alert("Please select all necersiry things");
+    }
+  }
+  //                         ---  btn for add to cart  end   ----
+  //                        <<<<<<---------------------------->>>>>>
+  //for add to cart end
 
   const { id, image, title, category, price, description } = product;
   return (
@@ -52,7 +90,7 @@ export default function ProductDetailed() {
         {Object.keys(product).length === 0 ? (
           <div>Loading...</div>
         ) : (
-          <div className="detailed_card flex">
+          <div className="detailed_card flex column-660">
             <div className="box-1">
               <img width="100%" src={image} alt={title} />
             </div>
@@ -84,11 +122,14 @@ export default function ProductDetailed() {
                 icon={faStar}
               />
               <span> 1 trillion reviews</span> <br />
-              <span>{description}</span>
+              <span>
+                <p>{description}</p>
+              </span>
               <div id="choosing" className="flex space-b">
                 <div className="choosingSize">
                   <span>Choose size </span>
-                  <select>
+                  <select id="sizeSelector" onChange={setType}>
+                    <option>-select-</option>
                     <option>small</option>
                     <option>medium</option>
                     <option>large</option>
@@ -110,7 +151,9 @@ export default function ProductDetailed() {
                   </span>
                 </div>
               </div>
-              <button className="btn btnAddCart">Add to cart</button>
+              <button className="btn btnAddCart" onClick={addToCartf}>
+                Add to cart
+              </button>
             </div>
           </div>
         )}

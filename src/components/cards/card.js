@@ -17,7 +17,7 @@ export default function Card() {
         <div className="img-card flex">
           <img width="100%" src={image} alt={title} />
         </div>
-        <Link to={`/product/${id}`}>
+        <Link to={`/product/${id}`}> 
           <div className="flex content-card space-b">
             <div className="card-box-left">
               {title}

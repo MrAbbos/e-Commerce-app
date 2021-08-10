@@ -13,3 +13,17 @@ export function selectedProduct(product) {
     payload: product,
   };
 }
+
+export function addToCart( productId, selectedOption, subTotal ) {
+  return {
+    type: actionTypes.ADDTOCART,
+    payload: { id: productId, type: selectedOption, quantity:subTotal },
+  };
+}
+
+export function updateCart(...payload){
+  return{
+    type: actionTypes.UPDATE_CART,
+    payload
+  }
+}

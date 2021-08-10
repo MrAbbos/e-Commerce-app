@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 import "./style.css";
 
 export default function Header() {
@@ -18,10 +19,9 @@ export default function Header() {
             </div>
             <div className="box-2 flex space-a">
               <div className="login-bucket">
-                <button>LogIn </button>/
+                <button>LogIn </button>{"/"}
                 <button>
-                  
-                  <FontAwesomeIcon icon={faShoppingCart} />
+                  <Link to={`/savat/`}><FontAwesomeIcon icon={faShoppingCart} /></Link>
                 </button>
               </div>
             </div>
@@ -32,7 +32,7 @@ export default function Header() {
               <div className="box-2 text-center">
                 <ul className="flex space-a">
                   <li>
-                    <button>Home</button>
+                    <Link to={'/'}><button>Home</button></Link>
                   </li>
                   <li>
                     <button>Collection</button>

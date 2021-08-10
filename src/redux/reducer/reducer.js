@@ -4,6 +4,10 @@ const initialState = {
   products: [],
 };
 
+const initialStateForCart={
+  cart: [{ id: 1, quantity: 2, type: "small" }],
+}
+
 export function productReducer(state = initialState, { type, payload }) {
   switch (type) {
     case actionTypes.SET_PRODUCTS:
@@ -24,3 +28,15 @@ export function selectedProductReducer(
       return state;
   }
 }
+
+export function addToCartReducer(state = initialStateForCart, { type, payload }) {
+  switch (type) {
+    case actionTypes.ADDTOCART:
+      return { ...state, cart: [...state.cart, payload] };
+    // case actionTypes.UPDATE_CART:
+    //   return{...state, cart:[...state.cart, id:payload.productId, quantity: payload.] }
+    default:
+      return state;
+  }
+}
+
