@@ -4,9 +4,9 @@ const initialState = {
   products: [],
 };
 
-const initialStateForCart={
-  cart: [{ id: 1, quantity: 2, type: "small" }],
-}
+const initialStateForCart = {
+  cart: [],
+};
 
 export function productReducer(state = initialState, { type, payload }) {
   switch (type) {
@@ -29,14 +29,17 @@ export function selectedProductReducer(
   }
 }
 
-export function addToCartReducer(state = initialStateForCart, { type, payload }) {
+export function addToCartReducer(
+  state = initialStateForCart,
+  { type, payload }
+) {
   switch (type) {
     case actionTypes.ADDTOCART:
       return { ...state, cart: [...state.cart, payload] };
+    // bug is here i should update the existing cart item
     // case actionTypes.UPDATE_CART:
     //   return{...state, cart:[...state.cart, id:payload.productId, quantity: payload.] }
     default:
       return state;
   }
 }
-

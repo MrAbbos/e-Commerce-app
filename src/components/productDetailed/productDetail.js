@@ -6,10 +6,10 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { selectedProduct, addToCart } from "../../redux/actions/actions";
+import DecisionMaking from "../buttons/decisionMaking/decisionMaking";
 
 export default function ProductDetailed() {
   const dispatch = useDispatch();
-
   let { productId } = useParams();
 
   const fetchProductDetail = async function () {
@@ -31,17 +31,17 @@ export default function ProductDetailed() {
     (state) => state.product.products
     //(state) => state.allProducts.products[--productId]
   );
-  const cart = useSelector((state) => state.cart.cart);
+  const { id, image, title, category, price, description } = product;
 
   //          <<<<<------------------------>>>>>>>>>
   //           ---   counter for subtotal ----
   const [subTotal, setSubTotal] = useState(0);
 
-  function addOne() {
+  function plusOne() {
     setSubTotal(subTotal + 1);
   }
 
-  function takeOne() {
+  function minusOne() {
     subTotal - 1 > 0
       ? setSubTotal(subTotal - 1)
       : alert("Please choose at least one product");
@@ -50,6 +50,7 @@ export default function ProductDetailed() {
   //                    ---   counter for subtotal end  ----
   //                   <<<----------------------------------->>>>>
   //                       ---  btn for add to cart  ----
+  const cart = useSelector((state) => state.cart.cart);
 
   const [selectedOption, setSelectedOption] = useState("");
 
@@ -65,7 +66,7 @@ export default function ProductDetailed() {
       }
     });
     if (isAlreadyInCart) {
-      alert(`Bug needed to be fixed
+      console.log(`Bug needed to be fixed
       description: when user wants to buy the same thing more than a one time programm should update the quantity of that product.
       `);
     } else if (
@@ -73,8 +74,17 @@ export default function ProductDetailed() {
       selectedOption !== "" &&
       selectedOption !== "--select-"
     ) {
-      dispatch(addToCart(productId, selectedOption, subTotal));
-      console.log(selectedOption);
+      dispatch(
+        addToCart(
+          productId,
+          title,
+          selectedOption,
+          subTotal,
+          price,
+          image,
+          category
+        )
+      );
     } else {
       alert("Please select all necersiry things");
     }
@@ -83,7 +93,6 @@ export default function ProductDetailed() {
   //                        <<<<<<---------------------------->>>>>>
   //for add to cart end
 
-  const { id, image, title, category, price, description } = product;
   return (
     <section id="productDetailed">
       <div className="container">
@@ -139,9 +148,9 @@ export default function ProductDetailed() {
                   </select>
                 </div>
                 <div className="numberOfGoods space-a flex">
-                  <button onClick={takeOne}>- </button>
+                  <button onClick={minusOne}>- </button>
                   {subTotal}
-                  <button onClick={addOne}>+ </button>
+                  <button onClick={plusOne}>+ </button>
                 </div>
                 <div className="a">
                   <span>

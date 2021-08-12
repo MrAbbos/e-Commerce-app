@@ -1,9 +1,12 @@
+.savatComponent {
+  flex-wrap: wrap;
+}
 .savat .savatImg {
-  flex: 1;
+  width: 30%;
 }
-.savat .name {
-  flex: 2;
+.savatImg {
+  justify-content: center !important;
 }
-.savat .choosing {
-  flex: 4;
+.cart-right-box {
+  width: 70%;
 }

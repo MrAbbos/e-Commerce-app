@@ -14,16 +14,32 @@ export function selectedProduct(product) {
   };
 }
 
-export function addToCart( productId, selectedOption, subTotal ) {
+export function addToCart(
+  productId,
+  title,
+  selectedOption,
+  quantity,
+  price,
+  image,
+  category
+) {
   return {
     type: actionTypes.ADDTOCART,
-    payload: { id: productId, type: selectedOption, quantity:subTotal },
+    payload: {
+      id: productId,
+      title,
+      type: selectedOption,
+      quantity,
+      price,
+      image,
+      category,
+    },
   };
 }
 
-export function updateCart(...payload){
-  return{
+export function updateCart(...payload) {
+  return {
     type: actionTypes.UPDATE_CART,
-    payload
-  }
+    payload,
+  };
 }
